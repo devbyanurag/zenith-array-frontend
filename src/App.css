@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap");
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Circularair";
+  src: local("Circularair"),
+    url("./assets/fonts/CircularAirPro-Book.ttf") format("truetype");
+  font-weight: normal; /* Range of weights supported by the variable font */
+  font-style: normal; /* Include if the font has italic styles */
+}

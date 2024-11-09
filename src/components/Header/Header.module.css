@@ -1,0 +1,90 @@
+.container {
+  width: 90%;
+  height: 60px;
+  position: absolute;
+  top: 30px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerbToTAni {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  height: 100%;
+  border-radius: 5px;
+}
+.rightHeader {
+  display: flex;
+}
+.rightHeader a {
+  position: relative;
+  text-decoration: none; /* Remove default underline */
+  color: inherit; /* Use the current text color */
+  transition: color 0.3s; /* Smooth color transition */
+  margin: 0 15px;
+  font-family: "Circularair";
+}
+
+/* Animated underline */
+.rightHeader a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust based on the desired distance from text */
+  width: 0;
+  height: 2px; /* Adjust thickness */
+  background-color: currentColor;
+  transition: width 0.3s ease-in-out;
+}
+
+/* On hover, animate the underline from left to right */
+.rightHeader a:hover::after {
+  width: 100%;
+}
+.lightText {
+  color: white;
+}
+
+.darkText {
+  color: black;
+}
+.rightHeaderSmall {
+  display: none;
+}
+.rightHeaderSmall span{
+  font-size: 2rem;
+}
+.SideNav {
+  position: absolute;
+  width: 100%;
+  top: 70px;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents content overflow during animation */
+  /* padding: 10px 0; */
+}
+
+.SideNav a {
+  padding: 20px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+  font-size: 20px;
+  font-family: "Circularair";
+  border-bottom: 0.1px solid rgba(255, 255, 255, 0.532);
+}
+
+@media (max-width: 768px) {
+  .rightHeader {
+    display: none;
+  }
+  .rightHeaderSmall {
+    display: block;
+  }
+}
