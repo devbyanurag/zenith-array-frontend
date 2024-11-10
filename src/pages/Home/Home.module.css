@@ -16,13 +16,12 @@
   animation: lowOpaciy 2s linear;
 }
 @keyframes lowOpaciy {
-  from{
+  from {
     opacity: 1;
   }
-  to{
+  to {
     opacity: 0.5;
   }
-  
 }
 
 .textCenter {
@@ -34,65 +33,98 @@
   font-size: 6rem;
 }
 
-
-/* Existing styles remain unchanged */
-
 /* About Section */
 .aboutSection {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 50px;
-  background-color: #121212;
-  margin-top: 50px;
+  margin: 50px 0;
   border-radius: 10px;
+  overflow: hidden;
+}
+.aboutSection .aboutSectionLeft,
+.aboutSectionRight {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.aboutSection .aboutSectionLeft img {
+  height: 300px;
+  width: 70%;
+  object-fit: cover;
+  object-position: bottom;
 }
 
-.aboutImg {
-  width: 40%;
-  height: auto;
-  border-radius: 10px;
+.aboutSection .aboutSectionRight h2 {
+  font-weight: bold;
+  font-size: 5rem;
+  font-family: "Passions Conflict", cursive;
+}
+.aboutSection .aboutSectionRight p {
+  font-family: "Circularair";
+  padding: 0 100px;
 }
 
-.aboutText {
-  color: white;
-  width: 55%;
-  padding-left: 20px;
+.partnersSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.partnersSection .partnersHeading{
+  font-weight: bold;
+  font-size: 5rem;
+  font-family: "Passions Conflict", cursive;
+
 }
 
-.aboutText h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+.partnersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 80%;
+  margin: 30px 0;
 }
 
-.aboutText p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+.partnersItem {
+  flex-basis: 32%; 
+  height: 120px;
+  text-align: center;
+  /* margin: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.partnersItem:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  cursor: pointer;
+}
+.partnersItem img{
+  height: 90%;
 }
 
 /* Media query for smaller devices */
 @media (max-width: 768px) {
   .aboutSection {
-    flex-direction: column;
-    padding: 20px;
+    display: block;
   }
-
-  .aboutImg {
-    width: 100%;
-    margin-bottom: 20px;
+  .aboutSection .aboutSectionLeft img {
+    height: 200px;
   }
-
-  .aboutText {
-    width: 100%;
-    padding-left: 0;
+  .aboutSection .aboutSectionRight p {
+    padding: 0 10px;
   }
-
-  .aboutText h2 {
-    font-size: 2rem;
-  }
-
-  .aboutText p {
-    font-size: 1rem;
+  .partnersItem{
+    flex-basis: 100%;
   }
 }
 
+/* Media query for mideam devices */
+@media (min-width: 769px) and (max-width: 1253px) {
+
+
+  .partnersItem {
+    flex-basis: 45%; /* Ensure items adjust to fit 2 per row */
+  }
+}
