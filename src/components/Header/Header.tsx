@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Header.module.css';
 import logoImg from '../../assets/images/logo.jpg';
 import { motion, AnimatePresence } from 'framer-motion';

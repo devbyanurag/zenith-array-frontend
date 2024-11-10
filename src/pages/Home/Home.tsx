@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import styles from './Home.module.css';
 import bg1 from '../../assets/bg1.png';
