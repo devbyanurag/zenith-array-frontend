@@ -2,18 +2,27 @@ import { useState } from 'react';
 import styles from './Header.module.css';
 import logoImg from '../../assets/images/logo.jpg';
 import { motion, AnimatePresence } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
 
 interface HeaderType {
     lightText?: boolean;
+    homeRef?: React.RefObject<HTMLElement>;
+    aboutRef?: React.RefObject<HTMLElement>;
+    workRef?: React.RefObject<HTMLElement>;
+    contactRef?: React.RefObject<HTMLElement>;
 }
 
-const Header = ({ lightText = true }: HeaderType) => {
+const Header = ({ lightText = true, homeRef, aboutRef, workRef, contactRef }: HeaderType) => {
     const textClass = lightText ? styles.lightText : styles.darkText;
     const [navOpen, setNavOpen] = useState(false);
 
     const handleNavOpenClose = () => {
         setNavOpen(!navOpen);
+    };
+
+    const handleScrollToSection = (ref?: React.RefObject<HTMLElement>) => {
+        if (ref?.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
@@ -33,10 +42,10 @@ const Header = ({ lightText = true }: HeaderType) => {
                 className={`${styles.headerbToTAni} ${textClass}`}
             >
                 <div className={`${styles.rightHeader} ${textClass}`}>
-                    <NavLink to={'#'}>Home</NavLink>
-                    <NavLink to={'#'}>About Us</NavLink>
-                    <NavLink to={'#'}>Our Work</NavLink>
-                    <NavLink to={'#'}>Contact Us</NavLink>
+                    <button onClick={() => handleScrollToSection(homeRef)}>Home</button>
+                    <button onClick={() => handleScrollToSection(aboutRef)}>About Us</button>
+                    <button onClick={() => handleScrollToSection(workRef)}>Our Work</button>
+                    <button onClick={() => handleScrollToSection(contactRef)}>Contact Us</button>
                 </div>
 
                 <div className={`${styles.rightHeaderSmall} ${textClass}`} onClick={handleNavOpenClose}>
@@ -53,10 +62,10 @@ const Header = ({ lightText = true }: HeaderType) => {
                         className={styles.SideNav}
                         style={{ backgroundColor: "#00000090" }}
                     >
-                        <NavLink to={'#'}>Home</NavLink>
-                        <NavLink to={'#'}>About Us</NavLink>
-                        <NavLink to={'#'}>Our Work</NavLink>
-                        <NavLink to={'#'}>Contact Us</NavLink>
+                        <button onClick={() => handleScrollToSection(homeRef)}>Home</button>
+                        <button onClick={() => handleScrollToSection(aboutRef)}>About Us</button>
+                        <button onClick={() => handleScrollToSection(workRef)}>Our Work</button>
+                        <button onClick={() => handleScrollToSection(contactRef)}>Contact Us</button>
                     </motion.div>
                 )}
             </AnimatePresence>

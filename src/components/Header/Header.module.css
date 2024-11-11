@@ -21,7 +21,7 @@
 .rightHeader {
   display: flex;
 }
-.rightHeader a {
+.rightHeader button {
   position: relative;
   text-decoration: none; /* Remove default underline */
   color: inherit; /* Use the current text color */
@@ -31,7 +31,7 @@
 }
 
 /* Animated underline */
-.rightHeader a::after {
+.rightHeader button::after {
   content: "";
   position: absolute;
   left: 0;
@@ -43,7 +43,7 @@
 }
 
 /* On hover, animate the underline from left to right */
-.rightHeader a:hover::after {
+.rightHeader button:hover::after {
   width: 100%;
 }
 .lightText {
@@ -70,12 +70,12 @@
   /* padding: 10px 0; */
 }
 
-.SideNav a {
-  padding: 20px 20px;
+.SideNav button {
+  padding: 10px 20px;
   text-decoration: none;
   color: inherit;
   transition: color 0.3s;
-  font-size: 20px;
+  font-size: 14px;
   font-family: "Circularair";
   border-bottom: 0.1px solid rgba(255, 255, 255, 0.532);
 }

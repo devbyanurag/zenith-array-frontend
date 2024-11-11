@@ -13,10 +13,10 @@ const Home = () => {
     const { scrollYProgress } = useScroll();
 
     // Define smoother transformations with an extended scroll range
-    const leftX = useTransform(scrollYProgress, [0.02, 0.3], ['-50%', '0%']);
+    const leftX = useTransform(scrollYProgress, [0.02, 0.4], ['-50%', '0%']);
     const leftOpacity = useTransform(scrollYProgress, [0.0, 0.3], [0, 1]);
 
-    const rightX = useTransform(scrollYProgress, [0.02, 0.3], ['50%', '0%']);
+    const rightX = useTransform(scrollYProgress, [0.02, 0.4], ['50%', '0%']);
     const rightOpacity = useTransform(scrollYProgress, [0.0, 0.3], [0, 1]);
 
 
@@ -24,11 +24,17 @@ const Home = () => {
     const partnerRef = useRef(null); // Reference to the element
     const isInViewpartnerRef = useInView(partnerRef, { once: true });
 
+    const homeRef = useRef(null);
+    const aboutRef = useRef(null);
+    const workRef = useRef(null);
+    const contactRef = useRef(null);
+
     return (
         <div className={styles.mainContainer}>
-            <div className={styles.container}>
+            <div className={styles.container} >
                 <img src={bg1} alt="Background" className={styles.homeBgImg} />
-                <Header />
+                <Header homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} contactRef={contactRef} />
+                
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -39,7 +45,7 @@ const Home = () => {
                 </motion.div>
             </div>
 
-            <section className={styles.aboutSection}>
+            <section className={styles.aboutSection}  ref={aboutRef}>
                 <motion.div
                     className={`${styles.aboutSectionLeft}`}
                     style={{ x: leftX, opacity: leftOpacity }}
@@ -52,7 +58,8 @@ const Home = () => {
                     style={{ x: rightX, opacity: rightOpacity }}
                 >
                     <h2>About Us</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, architecto nostrum? Sequi non illum exercitationem? Delectus, sit. Laboriosam, quod eaque labore dolore ex iste iusto eligendi quasi accusantium porro nemo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque natus eligendi tenetur cumque fugiat debitis facere veritatis assumenda voluptates numquam hic obcaecati, officia facilis quidem nulla unde ipsa praesentium temporibus. </p>
+                    <p>Zenith Array is a leading Pan-India casting and production agency based in Mumbai, with operations across Himachal Pradesh, Uttarakhand, Chandigarh, Delhi, Jammu & Kashmir, and Northern UP. Specializing in line production, casting, and event management, Zenith Array is known for its commitment to delivering top-tier production services and seamless project execution for films and events. For more information
+                        <a href='https://m.imdb.com/name/nm15856716/?ref_=nv_sr_srsg_0_tt_1_nm_7_q_manish%2520kaka' target='_blank'> Click Here</a> </p>
                 </motion.div>
             </section>
             <section className={styles.partnersSection}>
